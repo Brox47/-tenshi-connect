@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Connexion — TENSHI Connect</title>
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+
+      background: #050505;
+
+      color: white;
+
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      padding: 20px;
+    }
+
+
+    .container {
+      width: 100%;
+      max-width: 420px;
+
+      animation:
+        appear .7s ease;
+    }
+
+
+    @keyframes appear {
+
+      from {
+        opacity: 0;
+        transform:
+          translateY(25px);
+      }
+
+      to {
+        opacity: 1;
+        transform:
+          translateY(0);
+      }
+
+    }
+
+
+    .logo {
+      width: 55px;
+      height: 55px;
+
+      margin: 0 auto 20px;
+
+      border-radius: 16px;
+
+      background: white;
+
+      color: #050505;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-weight: 900;
+
+      font-size: 14px;
+
+      box-shadow:
+        0 0 40px
+        rgba(255,255,255,.08);
+    }
+
+
+    h1 {
+      text-align: center;
+
+      font-size: 30px;
+
+      letter-spacing: -1px;
+
+      margin-bottom: 8px;
+    }
+
+
+    .subtitle {
+      text-align: center;
+
+      color: #777;
+
+      font-size: 13px;
+
+      margin-bottom: 35px;
+    }
+
+
+    .card {
+
+      background: #0a0a0a;
+
+      border:
+        1px solid #202020;
+
+      border-radius: 18px;
+
+      padding: 25px;
+
+      box-shadow:
+        0 20px 60px
+        rgba(0,0,0,.35);
+    }
+
+
+    .field {
+      margin-bottom: 18px;
+    }
+
+
+    label {
+      display: block;
+
+      color: #aaa;
+
+      font-size: 12px;
+
+      margin-bottom: 8px;
+    }
+
+
+    input {
+
+      width: 100%;
+
+      padding: 14px;
+
+      border:
+        1px solid #292929;
+
+      border-radius: 10px;
+
+      background: #050505;
+
+      color: white;
+
+      outline: none;
+
+      font-size: 14px;
+
+      transition:
+        border .2s ease,
+        box-shadow .2s ease;
+    }
+
+
+    input:focus {
+
+      border-color: #777;
+
+      box-shadow:
+        0 0 0 3px
+        rgba(255,255,255,.04);
+    }
+
+
+    button {
+
+      width: 100%;
+
+      border: none;
+
+      border-radius: 10px;
+
+      padding: 14px;
+
+      background: white;
+
+      color: #050505;
+
+      font-size: 14px;
+
+      font-weight: 800;
+
+      cursor: pointer;
+
+      transition:
+        transform .2s ease,
+        opacity .2s ease;
+    }
+
+
+    button:hover {
+
+      transform:
+        translateY(-2px);
+    }
+
+
+    button:disabled {
+
+      opacity: .5;
+
+      cursor: not-allowed;
+
+      transform: none;
+    }
+
+
+    #message {
+
+      min-height: 20px;
+
+      margin-top: 15px;
+
+      text-align: center;
+
+      color: #aaa;
+
+      font-size: 12px;
+
+      line-height: 1.5;
+    }
+
+
+    .register {
+
+      margin-top: 22px;
+
+      text-align: center;
+
+      color: #777;
+
+      font-size: 12px;
+    }
+
+
+    .register a {
+
+      color: white;
+
+      text-decoration: none;
+
+      font-weight: 700;
+    }
+
+
+    .back {
+
+      display: block;
+
+      margin-top: 20px;
+
+      text-align: center;
+
+      color: #666;
+
+      text-decoration: none;
+
+      font-size: 12px;
+    }
+
+
+    .back:hover {
+      color: white;
+    }
+
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <div class="container">
+
+
+    <div class="logo">
+      TS
+    </div>
+
+
+    <h1>
+      TENSHI Connect
+    </h1>
+
+
+    <p class="subtitle">
+      Connectez-vous à votre compte
+    </p>
+
+
+    <div class="card">
+
+
+      <form id="loginForm">
+
+
+        <div class="field">
+
+          <label for="email">
+            Adresse e-mail
+          </label>
+
+          <input
+            type="email"
+            id="email"
+            placeholder="exemple@email.com"
+            autocomplete="email"
+            required
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label for="password">
+            Mot de passe
+          </label>
+
+          <input
+            type="password"
+            id="password"
+            placeholder="Votre mot de passe"
+            autocomplete="current-password"
+            required
+          >
+
+        </div>
+
+
+        <button
+          type="submit"
+          id="loginButton"
+        >
+          Se connecter
+        </button>
+
+
+        <p id="message"></p>
+
+
+      </form>
+
+
+      <div class="register">
+
+        Vous n'avez pas encore de compte ?
+
+        <a href="signup.html">
+          Créer un compte
+        </a>
+
+      </div>
+
+
+    </div>
+
+
+    <a
+      href="index.html"
+      class="back"
+    >
+      ← Retour à l'accueil
+    </a>
+
+
+  </div>
+
+
+
+  <!-- =========================
+       FIREBASE LOGIN
+  ========================== -->
+
+  <script type="module">
+
+    import {
+      signInWithEmailAndPassword
+    }
+    from
+    "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+
+    import {
+      auth
+    }
+    from "./firebase.js";
+
+
+    const form =
+      document.getElementById(
+        "loginForm"
+      );
+
+
+    const message =
+      document.getElementById(
+        "message"
+      );
+
+
+    const button =
+      document.getElementById(
+        "loginButton"
+      );
+
+
+    form.addEventListener(
+      "submit",
+      async function(event) {
+
+        event.preventDefault();
+
+
+        const email =
+          document
+          .getElementById("email")
+          .value
+          .trim();
+
+
+        const password =
+          document
+          .getElementById("password")
+          .value;
+
+
+        if (!email || !password) {
+
+          message.textContent =
+            "Veuillez remplir tous les champs.";
+
+          return;
+
+        }
+
+
+        button.disabled = true;
+
+        button.textContent =
+          "Connexion...";
+
+        message.textContent = "";
+
+
+        try {
+
+
+          const userCredential =
+            await signInWithEmailAndPassword(
+              auth,
+              email,
+              password
+            );
+
+
+          console.log(
+            "Utilisateur connecté :",
+            userCredential.user.email
+          );
+
+
+          message.textContent =
+            "Connexion réussie...";
+
+
+          /*
+           * Petit délai pour laisser
+           * Firebase terminer la session.
+           */
+
+          setTimeout(
+            function() {
+
+              window.location.replace(
+                "dashboard.html"
+              );
+
+            },
+            500
+          );
+
+
+        }
+
+        catch (error) {
+
+
+          console.error(
+            "Erreur Firebase:",
+            error
+          );
+
+
+          if (
+            error.code ===
+            "auth/invalid-credential"
+          ) {
+
+            message.textContent =
+              "Adresse e-mail ou mot de passe incorrect.";
+
+          }
+
+          else if (
+            error.code ===
+            "auth/user-not-found"
+          ) {
+
+            message.textContent =
+              "Aucun compte ne correspond à cet e-mail.";
+
+          }
+
+          else if (
+            error.code ===
+            "auth/wrong-password"
+          ) {
+
+            message.textContent =
+              "Mot de passe incorrect.";
+
+          }
+
+          else if (
+            error.code ===
+            "auth/invalid-email"
+          ) {
+
+            message.textContent =
+              "Adresse e-mail invalide.";
+
+          }
+
+          else {
+
+            message.textContent =
+              "Erreur : " +
+              error.message;
+
+          }
+
+
+          button.disabled = false;
+
+          button.textContent =
+            "Se connecter";
+
+        }
+
+      }
+    );
+
+  </script>
+
+
+</body>
+
+</html>

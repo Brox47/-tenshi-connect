@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>T.S • TENSHI CONNECT</title>
+
+  <link rel="stylesheet"
+        href="dashboard.css">
+</head>
+
+<body>
+
+  <!-- MOBILE OVERLAY -->
+  <div class="overlay"
+       onclick="closeMenu()"></div>
+
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="logo">
+
+      <div class="logo-box">
+        T.S
+      </div>
+
+      <div class="logo-text">
+        <strong>TENSHI</strong>
+        <span>CONNECT</span>
+      </div>
+
+    </div>
+
+
+    <nav>
+
+      <a href="#home" class="nav active">
+        <span>⌂</span>
+        Accueil
+      </a>
+
+      <a href="#contacts" class="nav">
+        <span>◉</span>
+        Contacts
+      </a>
+
+      <a href="#sync" class="nav">
+        <span>↻</span>
+        Synchronisation
+      </a>
+
+      <a href="#activity" class="nav">
+        <span>◷</span>
+        Activité
+      </a>
+
+      <a href="#profile" class="nav">
+        <span>♙</span>
+        Mon profil
+      </a>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+      <div class="mini-user">
+
+        <div class="mini-avatar">
+          T.S
+        </div>
+
+        <div>
+          <strong id="sideName">
+            T.S • Utilisateur
+          </strong>
+
+          <small>
+            Membre
+          </small>
+        </div>
+
+      </div>
+
+
+      <button class="logout"
+              onclick="logout()">
+
+        ↪ Déconnexion
+
+      </button>
+
+    </div>
+
+  </aside>
+
+
+  <!-- MAIN -->
+  <main class="main">
+
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+
+      <button class="menu"
+              onclick="openMenu()">
+
+        ☰
+
+      </button>
+
+
+      <div>
+
+        <div class="page-title">
+          Dashboard
+        </div>
+
+        <div class="page-subtitle">
+          TENSHI CONNECT
+        </div>
+
+      </div>
+
+
+      <div class="top-user">
+
+        <div class="notification">
+          ♢
+          <i></i>
+        </div>
+
+        <div class="top-avatar">
+          T.S
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- CONTENT -->
+    <div class="content">
+
+
+      <!-- HERO -->
+      <section class="hero"
+               id="home">
+
+        <div>
+
+          <div class="tag">
+            TENSHI CONNECT
+          </div>
+
+          <h1 id="welcome">
+            Bienvenue 👋
+          </h1>
+
+          <p>
+            Gère ton compte et tes contacts
+            depuis ton espace personnel.
+          </p>
+
+        </div>
+
+
+        <button class="sync-main"
+                onclick="syncContacts()">
+
+          <span>↻</span>
+
+          Synchroniser
+
+        </button>
+
+      </section>
+
+
+      <!-- ACCOUNT -->
+      <section class="account">
+
+        <div class="account-avatar">
+          T.S
+        </div>
+
+        <div class="account-info">
+
+          <small>
+            MON COMPTE
+          </small>
+
+          <h2 id="accountName">
+            T.S • Utilisateur
+          </h2>
+
+          <p id="accountEmail">
+            email@example.com
+          </p>
+
+          <p id="accountPhone">
+            +509 0000-0000
+          </p>
+
+        </div>
+
+
+        <div class="account-badge">
+
+          <span></span>
+
+          Actif
+
+        </div>
+
+      </section>
+
+
+      <!-- STATS -->
+      <section class="stats">
+
+
+        <div class="stat">
+
+          <div class="stat-top">
+
+            <span class="icon purple">
+              ◉
+            </span>
+
+            <span>
+              UTILISATEURS
+            </span>
+
+          </div>
+
+          <strong id="users">
+            0
+          </strong>
+
+          <small>
+            Membres TENSHI CONNECT
+          </small>
+
+        </div>
+
+
+        <div class="stat">
+
+          <div class="stat-top">
+
+            <span class="icon blue">
+              ☎
+            </span>
+
+            <span>
+              CONTACTS
+            </span>
+
+          </div>
+
+          <strong id="contacts">
+            0
+          </strong>
+
+          <small>
+            Contacts enregistrés
+          </small>
+
+        </div>
+
+
+        <div class="stat">
+
+          <div class="stat-top">
+
+            <span class="icon green">
+              ↻
+            </span>
+
+            <span>
+              SYNCHRONISÉS
+            </span>
+
+          </div>
+
+          <strong id="synced">
+            0
+          </strong>
+
+          <small>
+            Dernière synchronisation
+          </small>
+
+        </div>
+
+
+        <div class="stat">
+
+          <div class="stat-top">
+
+            <span class="icon orange">
+              ✓
+            </span>
+
+            <span>
+              COMPTE
+            </span>
+
+          </div>
+
+          <strong>
+            Actif
+          </strong>
+
+          <small class="green-text">
+            Compte vérifié
+          </small>
+
+        </div>
+
+      </section>
+
+
+      <!-- MAIN GRID -->
+      <section class="grid">
+
+
+        <!-- CONTACTS -->
+        <div class="card"
+             id="contacts">
+
+          <div class="card-header">
+
+            <div>
+
+              <h2>
+                Contacts
+              </h2>
+
+              <p>
+                Tes contacts TENSHI CONNECT
+              </p>
+
+            </div>
+
+            <button>
+              Voir tout
+            </button>
+
+          </div>
+
+
+          <div id="contactList">
+
+            <!-- JS -->
+
+          </div>
+
+        </div>
+
+
+        <!-- SYNC -->
+        <div class="card"
+             id="sync">
+
+          <div class="card-header">
+
+            <div>
+
+              <h2>
+                Synchronisation
+              </h2>
+
+              <p>
+                Gère tes connexions
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="sync-card">
+
+            <div class="sync-icon">
+              ↻
+            </div>
+
+            <h3>
+              Synchroniser tes contacts
+            </h3>
+
+            <p>
+              Lance une synchronisation
+              lorsque tu es prêt.
+            </p>
+
+            <button onclick="syncContacts()">
+
+              Commencer
+
+            </button>
+
+          </div>
+
+
+          <div class="services">
+
+            <div class="service">
+
+              <div class="service-icon">
+                @
+              </div>
+
+              <div>
+                <strong>Email</strong>
+                <small>
+                  Compte email
+                </small>
+              </div>
+
+              <span>
+                Non connecté
+              </span>
+
+            </div>
+
+
+            <div class="service">
+
+              <div class="service-icon">
+                ☎
+              </div>
+
+              <div>
+                <strong>Téléphone</strong>
+                <small>
+                  Contacts autorisés
+                </small>
+              </div>
+
+              <span>
+                En attente
+              </span>
+
+            </div>
+
+
+            <div class="service">
+
+              <div class="service-icon">
+                W
+              </div>
+
+              <div>
+                <strong>WhatsApp</strong>
+                <small>
+                  Intégration officielle
+                </small>
+              </div>
+
+              <span>
+                Non connecté
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ACTIVITY -->
+      <section class="card activity"
+               id="activity">
+
+        <div class="card-header">
+
+          <div>
+
+            <h2>
+              Activité récente
+            </h2>
+
+            <p>
+              Les dernières activités
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="activity-row">
+
+          <div class="activity-icon">
+            ✓
+          </div>
+
+          <div>
+
+            <strong>
+              Compte actif
+            </strong>
+
+            <p>
+              Ton compte TENSHI CONNECT
+              est opérationnel.
+            </p>
+
+          </div>
+
+          <time>
+            Maintenant
+          </time>
+
+        </div>
+
+
+        <div class="activity-row">
+
+          <div class="activity-icon">
+            T.S
+          </div>
+
+          <div>
+
+            <strong>
+              Bienvenue sur TENSHI CONNECT
+            </strong>
+
+            <p>
+              Ton espace personnel est prêt.
+            </p>
+
+          </div>
+
+          <time>
+            Aujourd'hui
+          </time>
+
+        </div>
+
+      </section>
+
+
+      <!-- PROFILE -->
+      <section class="profile"
+               id="profile">
+
+        <div class="profile-cover"></div>
+
+        <div class="profile-body">
+
+          <div class="profile-avatar">
+            T.S
+          </div>
+
+          <div class="profile-info">
+
+            <small>
+              PROFIL
+            </small>
+
+            <h2 id="profileName">
+              T.S • Utilisateur
+            </h2>
+
+            <p id="profileEmail">
+              email@example.com
+            </p>
+
+            <p id="profilePhone">
+              +509 0000-0000
+            </p>
+
+          </div>
+
+          <button>
+            Modifier
+          </button>
+
+        </div>
+
+      </section>
+
+    </div>
+
+
+    <!-- MOBILE NAV -->
+    <div class="mobile-nav">
+
+      <a href="#home">
+        ⌂
+        <small>Accueil</small>
+      </a>
+
+      <a href="#contacts">
+        ◉
+        <small>Contacts</small>
+      </a>
+
+      <a href="#sync">
+        ↻
+        <small>Sync</small>
+      </a>
+
+      <a href="#profile">
+        ♙
+        <small>Profil</small>
+      </a>
+
+    </div>
+
+  </main>
+
+
+<script>
+
+/* =========================
+   USER
+========================= */
+
+const savedUser =
+  localStorage.getItem("tenshiUser");
+
+if (savedUser) {
+
+  const user =
+    JSON.parse(savedUser);
+
+  const name =
+    "T.S • " +
+    (user.name || "Utilisateur");
+
+  const email =
+    user.email ||
+    "email@example.com";
+
+  const phone =
+    user.phone ||
+    "+509 0000-0000";
+
+
+  document.getElementById(
+    "welcome"
+  ).textContent =
+    "Bienvenue, " +
+    name +
+    " 👋";
+
+
+  document.getElementById(
+    "accountName"
+  ).textContent = name;
+
+
+  document.getElementById(
+    "accountEmail"
+  ).textContent = email;
+
+
+  document.getElementById(
+    "accountPhone"
+  ).textContent = phone;
+
+
+  document.getElementById(
+    "profileName"
+  ).textContent = name;
+
+
+  document.getElementById(
+    "profileEmail"
+  ).textContent = email;
+
+
+  document.getElementById(
+    "profilePhone"
+  ).textContent = phone;
+
+
+  document.getElementById(
+    "sideName"
+  ).textContent = name;
+
+}
+
+
+/* =========================
+   CONTACTS
+========================= */
+
+const contacts = [
+
+  {
+    name: "Celestin",
+    phone: "+509 0000-0001",
+    status: "Actif"
+  },
+
+  {
+    name: "David",
+    phone: "+509 0000-0002",
+    status: "Actif"
+  },
+
+  {
+    name: "Mike",
+    phone: "+509 0000-0003",
+    status: "Synchronisé"
+  },
+
+  {
+    name: "Sarah",
+    phone: "+509 0000-0004",
+    status: "Actif"
+  }
+
+];
+
+
+const list =
+  document.getElementById(
+    "contactList"
+  );
+
+
+contacts.forEach(contact => {
+
+  const initials =
+    contact.name
+      .slice(0, 2)
+      .toUpperCase();
+
+
+  list.innerHTML += `
+
+    <div class="contact-row">
+
+      <div class="contact-avatar">
+        ${initials}
+      </div>
+
+      <div class="contact-data">
+
+        <strong>
+          T.S • ${contact.name}
+        </strong>
+
+        <small>
+          ${contact.phone}
+        </small>
+
+      </div>
+
+      <span class="contact-status">
+        ● ${contact.status}
+      </span>
+
+    </div>
+
+  `;
+
+});
+
+
+document.getElementById(
+  "users"
+).textContent = contacts.length;
+
+
+document.getElementById(
+  "contacts"
+).textContent =
+  contacts.length;
+
+
+/* =========================
+   SYNC
+========================= */
+
+function syncContacts() {
+
+  const button =
+    document.querySelector(
+      ".sync-main"
+    );
+
+  button.innerHTML =
+    "↻ Synchronisation...";
+
+
+  setTimeout(() => {
+
+    button.innerHTML =
+      "✓ Synchronisé";
+
+    document.getElementById(
+      "synced"
+    ).textContent =
+      contacts.length;
+
+  }, 1500);
+
+}
+
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+function openMenu() {
+
+  document
+    .querySelector(".sidebar")
+    .classList.add("open");
+
+  document
+    .querySelector(".overlay")
+    .classList.add("show");
+
+}
+
+
+function closeMenu() {
+
+  document
+    .querySelector(".sidebar")
+    .classList.remove("open");
+
+  document
+    .querySelector(".overlay")
+    .classList.remove("show");
+
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+function logout() {
+
+  localStorage.removeItem(
+    "tenshiUser"
+  );
+
+  window.location.href =
+    "index.html";
+
+}
+
+</script>
+
+</body>
+</html>

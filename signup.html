@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Créer un compte — TENSHI Connect</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            background: #030303;
+            color: white;
+
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Arial,
+                sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 430px;
+
+            padding: 30px;
+
+            background: #090909;
+
+            border: 1px solid #222;
+            border-radius: 22px;
+
+            box-shadow:
+                0 25px 80px rgba(0,0,0,.6);
+
+            animation: appear .7s ease;
+        }
+
+        @keyframes appear {
+
+            from {
+                opacity: 0;
+                transform:
+                    translateY(30px)
+                    scale(.96);
+            }
+
+            to {
+                opacity: 1;
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+        }
+
+        .logo {
+            width: 55px;
+            height: 55px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 20px;
+
+            background: white;
+            color: black;
+
+            border-radius: 15px;
+
+            font-size: 13px;
+            font-weight: 900;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .description {
+            color: #666;
+            font-size: 13px;
+            line-height: 1.6;
+
+            margin-bottom: 28px;
+        }
+
+        label {
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #aaa;
+
+            font-size: 12px;
+        }
+
+        input,
+        select {
+
+            width: 100%;
+
+            padding: 14px;
+
+            margin-bottom: 17px;
+
+            background: #111;
+
+            color: white;
+
+            border: 1px solid #292929;
+            border-radius: 11px;
+
+            outline: none;
+
+            font-size: 14px;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #666;
+        }
+
+        button {
+
+            width: 100%;
+
+            padding: 15px;
+
+            border: none;
+            border-radius: 11px;
+
+            background: white;
+            color: black;
+
+            font-size: 14px;
+            font-weight: 800;
+
+            cursor: pointer;
+
+            transition: .25s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 12px 35px
+                rgba(255,255,255,.12);
+        }
+
+        button:disabled {
+            opacity: .5;
+            cursor: wait;
+        }
+
+        #message {
+
+            min-height: 20px;
+
+            margin-top: 15px;
+
+            text-align: center;
+
+            color: #aaa;
+
+            font-size: 12px;
+
+            line-height: 1.5;
+        }
+
+        .login {
+
+            display: block;
+
+            margin-top: 22px;
+
+            text-align: center;
+
+            color: #777;
+
+            font-size: 12px;
+
+            text-decoration: none;
+        }
+
+        .login:hover {
+            color: white;
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+    <div class="logo">
+        TS
+    </div>
+
+
+    <h1>
+        Créer un compte
+    </h1>
+
+
+    <p class="description">
+        Rejoignez TENSHI Connect et
+        commencez à développer votre réseau.
+    </p>
+
+
+    <form id="signupForm">
+
+
+        <!-- NOM -->
+
+        <label for="name">
+            Nom complet
+        </label>
+
+        <input
+            id="name"
+            type="text"
+            placeholder="Votre nom complet"
+            autocomplete="name"
+            required
+        >
+
+
+        <!-- EMAIL -->
+
+        <label for="email">
+            Adresse e-mail
+        </label>
+
+        <input
+            id="email"
+            type="email"
+            placeholder="exemple@email.com"
+            autocomplete="email"
+            required
+        >
+
+
+        <!-- PAYS -->
+
+        <label for="country">
+            Pays
+        </label>
+
+        <select
+            id="country"
+            required
+        >
+
+            <option value="">
+                Sélectionner un pays
+            </option>
+
+            <option value="HT">
+                🇭🇹 Haïti
+            </option>
+
+            <option value="DO">
+                🇩🇴 République dominicaine
+            </option>
+
+            <option value="US">
+                🇺🇸 États-Unis
+            </option>
+
+            <option value="CA">
+                🇨🇦 Canada
+            </option>
+
+            <option value="FR">
+                🇫🇷 France
+            </option>
+
+            <option value="BE">
+                🇧🇪 Belgique
+            </option>
+
+            <option value="CH">
+                🇨🇭 Suisse
+            </option>
+
+            <option value="GB">
+                🇬🇧 Royaume-Uni
+            </option>
+
+            <option value="ES">
+                🇪🇸 Espagne
+            </option>
+
+            <option value="IT">
+                🇮🇹 Italie
+            </option>
+
+            <option value="DE">
+                🇩🇪 Allemagne
+            </option>
+
+            <option value="BR">
+                🇧🇷 Brésil
+            </option>
+
+            <option value="MX">
+                🇲🇽 Mexique
+            </option>
+
+            <option value="JM">
+                🇯🇲 Jamaïque
+            </option>
+
+            <option value="SN">
+                🇸🇳 Sénégal
+            </option>
+
+            <option value="CI">
+                🇨🇮 Côte d’Ivoire
+            </option>
+
+            <option value="CM">
+                🇨🇲 Cameroun
+            </option>
+
+            <option value="NG">
+                🇳🇬 Nigeria
+            </option>
+
+            <option value="ZA">
+                🇿🇦 Afrique du Sud
+            </option>
+
+            <option value="IN">
+                🇮🇳 Inde
+            </option>
+
+            <option value="JP">
+                🇯🇵 Japon
+            </option>
+
+            <option value="KR">
+                🇰🇷 Corée du Sud
+            </option>
+
+            <option value="CN">
+                🇨🇳 Chine
+            </option>
+
+            <option value="AU">
+                🇦🇺 Australie
+            </option>
+
+        </select>
+
+
+        <!-- MOT DE PASSE -->
+
+        <label for="password">
+            Mot de passe
+        </label>
+
+        <input
+            id="password"
+            type="password"
+            placeholder="Minimum 6 caractères"
+            minlength="6"
+            autocomplete="new-password"
+            required
+        >
+
+
+        <!-- BUTTON -->
+
+        <button
+            id="signupButton"
+            type="submit">
+
+            Créer mon compte
+
+        </button>
+
+
+        <div id="message"></div>
+
+
+    </form>
+
+
+    <a
+        href="login.html"
+        class="login">
+
+        Vous avez déjà un compte ?
+        Se connecter
+
+    </a>
+
+</div>
+
+
+
+<script type="module">
+
+
+/* =========================================
+   FIREBASE
+========================================= */
+
+import {
+    auth,
+    db
+} from "./firebase.js";
+
+
+import {
+    createUserWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+
+import {
+    doc,
+    setDoc,
+    serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+
+
+/* =========================================
+   ELEMENTS
+========================================= */
+
+const form =
+    document.getElementById("signupForm");
+
+
+const button =
+    document.getElementById("signupButton");
+
+
+const message =
+    document.getElementById("message");
+
+
+
+/* =========================================
+   SIGN UP
+========================================= */
+
+form.addEventListener(
+    "submit",
+    async function(event) {
+
+        event.preventDefault();
+
+
+        button.disabled = true;
+
+        button.textContent =
+            "Création du compte...";
+
+        message.textContent =
+            "";
+
+
+
+        /* -------------------------------
+           GET VALUES
+        -------------------------------- */
+
+        const name =
+            document
+                .getElementById("name")
+                .value
+                .trim();
+
+
+        const email =
+            document
+                .getElementById("email")
+                .value
+                .trim();
+
+
+        const country =
+            document
+                .getElementById("country")
+                .value;
+
+
+        const password =
+            document
+                .getElementById("password")
+                .value;
+
+
+
+        try {
+
+
+            /* ============================
+               1. CREATE FIREBASE ACCOUNT
+            ============================ */
+
+            const account =
+                await createUserWithEmailAndPassword(
+                    auth,
+                    email,
+                    password
+                );
+
+
+            const user =
+                account.user;
+
+
+
+            /* ============================
+               2. SAVE USER IN FIRESTORE
+            ============================ */
+
+            await setDoc(
+
+                doc(
+                    db,
+                    "users",
+                    user.uid
+                ),
+
+                {
+
+                    uid:
+                        user.uid,
+
+                    nom:
+                        name,
+
+                    email:
+                        email,
+
+                    pays:
+                        country,
+
+                    status:
+                        "Actif",
+
+                    createdAt:
+                        serverTimestamp()
+
+                }
+
+            );
+
+
+
+            /* ============================
+               3. SUCCESS
+            ============================ */
+
+            message.textContent =
+                "Compte créé avec succès.";
+
+            button.textContent =
+                "Ouverture du dashboard...";
+
+
+
+            /* ============================
+               4. GO TO DASHBOARD
+            ============================ */
+
+            window.location.replace(
+                "dashboard.html"
+            );
+
+
+        }
+
+
+        catch (error) {
+
+
+            console.error(
+                "Erreur inscription:",
+                error
+            );
+
+
+            button.disabled = false;
+
+            button.textContent =
+                "Créer mon compte";
+
+
+
+            /* ============================
+               FIREBASE ERRORS
+            ============================ */
+
+            switch (error.code) {
+
+
+                case "auth/email-already-in-use":
+
+                    message.textContent =
+                        "Cette adresse e-mail est déjà utilisée.";
+
+                    break;
+
+
+                case "auth/invalid-email":
+
+                    message.textContent =
+                        "L'adresse e-mail est invalide.";
+
+                    break;
+
+
+                case "auth/weak-password":
+
+                    message.textContent =
+                        "Le mot de passe doit contenir au moins 6 caractères.";
+
+                    break;
+
+
+                case "auth/network-request-failed":
+
+                    message.textContent =
+                        "Vérifiez votre connexion Internet.";
+
+                    break;
+
+
+                default:
+
+                    message.textContent =
+                        "Une erreur est survenue : "
+                        + error.message;
+
+            }
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+<title>TENSHI CONNECT</title>
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+
+  min-height: 100vh;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  overflow: hidden;
+
+  background: #030303;
+
+  color: white;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+}
+
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.background {
+
+  position: fixed;
+
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+}
+
+
+.glow {
+
+  position: absolute;
+
+  width: 320px;
+
+  height: 320px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,255,255,.07);
+
+  filter: blur(90px);
+
+  animation:
+    glowMove 7s ease-in-out infinite;
+
+}
+
+
+.glow.one {
+
+  top: -120px;
+
+  left: -100px;
+
+}
+
+
+.glow.two {
+
+  right: -130px;
+
+  bottom: -100px;
+
+  animation-delay: -3s;
+
+}
+
+
+@keyframes glowMove {
+
+  0%,
+  100% {
+
+    transform:
+      translate(0,0)
+      scale(1);
+
+  }
+
+  50% {
+
+    transform:
+      translate(80px,40px)
+      scale(1.25);
+
+  }
+
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+#intro {
+
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9999;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle,
+      #151515 0%,
+      #050505 55%,
+      #000 100%
+    );
+
+  transition:
+    opacity .8s ease,
+    visibility .8s ease;
+
+}
+
+
+#intro.hide {
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+
+}
+
+
+.intro-content {
+
+  text-align: center;
+
+  animation:
+    introEnter 1s cubic-bezier(.2,.8,.2,1);
+
+}
+
+
+@keyframes introEnter {
+
+  from {
+
+    opacity: 0;
+
+    transform:
+      scale(.7)
+      translateY(30px);
+
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform:
+      scale(1)
+      translateY(0);
+
+  }
+
+}
+
+
+/* LOGO */
+
+.intro-logo {
+
+  width: 82px;
+
+  height: 82px;
+
+  margin: 0 auto 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 24px;
+
+  background: white;
+
+  color: #050505;
+
+  font-size: 22px;
+
+  font-weight: 950;
+
+  box-shadow:
+    0 0 30px rgba(255,255,255,.1);
+
+  animation:
+    logoPulse 2s ease-in-out infinite;
+
+}
+
+
+@keyframes logoPulse {
+
+  0%,
+  100% {
+
+    transform:
+      scale(1)
+      rotate(0deg);
+
+    box-shadow:
+      0 0 25px
+      rgba(255,255,255,.08);
+
+  }
+
+  50% {
+
+    transform:
+      scale(1.08)
+      rotate(-3deg);
+
+    box-shadow:
+      0 0 70px
+      rgba(255,255,255,.18);
+
+  }
+
+}
+
+
+.intro-title {
+
+  font-size: 25px;
+
+  font-weight: 900;
+
+  letter-spacing: -1px;
+
+}
+
+
+.intro-subtitle {
+
+  margin-top: 8px;
+
+  color: #666;
+
+  font-size: 10px;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+
+}
+
+
+/* LOADING */
+
+.loading {
+
+  width: 240px;
+
+  height: 3px;
+
+  margin:
+    30px auto 0;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  background: #1b1b1b;
+
+}
+
+
+.loading-bar {
+
+  width: 0%;
+
+  height: 100%;
+
+  background: white;
+
+  animation:
+    loading 2.2s
+    cubic-bezier(.4,0,.2,1)
+    forwards;
+
+}
+
+
+@keyframes loading {
+
+  0% {
+    width: 0%;
+  }
+
+  40% {
+    width: 35%;
+  }
+
+  75% {
+    width: 70%;
+  }
+
+  100% {
+    width: 100%;
+  }
+
+}
+
+
+.loading-text {
+
+  margin-top: 12px;
+
+  color: #555;
+
+  font-size: 10px;
+
+}
+
+
+/* =========================
+   LOGIN
+========================= */
+
+.login-card {
+
+  position: relative;
+
+  z-index: 2;
+
+  width: 90%;
+
+  max-width: 390px;
+
+  padding: 40px 28px;
+
+  text-align: center;
+
+  background:
+    rgba(12,12,12,.82);
+
+  border:
+    1px solid #272727;
+
+  border-radius: 26px;
+
+  box-shadow:
+    0 30px 100px
+    rgba(0,0,0,.65);
+
+  backdrop-filter:
+    blur(20px);
+
+  opacity: 0;
+
+  transform:
+    translateY(40px)
+    scale(.94);
+
+  transition:
+    opacity 1s ease,
+    transform 1s cubic-bezier(.2,.8,.2,1);
+
+}
+
+
+.login-card.show {
+
+  opacity: 1;
+
+  transform:
+    translateY(0)
+    scale(1);
+
+}
+
+
+/* =========================
+   LOGIN LOGO
+========================= */
+
+.login-logo {
+
+  width: 72px;
+
+  height: 72px;
+
+  margin:
+    0 auto 22px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 21px;
+
+  background: white;
+
+  color: #050505;
+
+  font-size: 20px;
+
+  font-weight: 950;
+
+  animation:
+    loginLogo 1s ease .4s both;
+
+}
+
+
+@keyframes loginLogo {
+
+  from {
+
+    opacity: 0;
+
+    transform:
+      scale(.5)
+      rotate(-15deg);
+
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform:
+      scale(1)
+      rotate(0);
+
+  }
+
+}
+
+
+/* =========================
+   TEXT
+========================= */
+
+h1 {
+
+  font-size: 30px;
+
+  letter-spacing: -1px;
+
+  margin-bottom: 10px;
+
+  animation:
+    textAppear .8s ease .5s both;
+
+}
+
+
+.login-subtitle {
+
+  color: #707070;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+
+  margin-bottom: 30px;
+
+  animation:
+    textAppear .8s ease .65s both;
+
+}
+
+
+@keyframes textAppear {
+
+  from {
+
+    opacity: 0;
+
+    transform:
+      translateY(12px);
+
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform:
+      translateY(0);
+
+  }
+
+}
+
+
+/* =========================
+   GOOGLE BUTTON
+========================= */
+
+.google-btn {
+
+  width: 100%;
+
+  height: 54px;
+
+  border: 1px solid #ddd;
+
+  border-radius: 14px;
+
+  background: white;
+
+  color: #111;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  font-size: 14px;
+
+  font-weight: 750;
+
+  cursor: pointer;
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    background .25s ease;
+
+  animation:
+    buttonAppear .8s ease .8s both;
+
+}
+
+
+@keyframes buttonAppear {
+
+  from {
+
+    opacity: 0;
+
+    transform:
+      translateY(18px);
+
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform:
+      translateY(0);
+
+  }
+
+}
+
+
+.google-btn:hover {
+
+  transform:
+    translateY(-4px);
+
+  box-shadow:
+    0 18px 45px
+    rgba(255,255,255,.14);
+
+}
+
+
+.google-btn:active {
+
+  transform:
+    scale(.97);
+
+}
+
+
+.google-btn:disabled {
+
+  opacity: .55;
+
+  cursor: wait;
+
+  transform: none;
+
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+.status {
+
+  min-height: 20px;
+
+  margin-top: 18px;
+
+  color: #777;
+
+  font-size: 12px;
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:500px) {
+
+  .login-card {
+
+    padding:
+      35px 22px;
+
+  }
+
+  .intro-logo {
+
+    width: 75px;
+
+    height: 75px;
+
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- BACKGROUND -->
+
+<div class="background">
+
+  <div class="glow one"></div>
+
+  <div class="glow two"></div>
+
+</div>
+
+
+<!-- =========================
+     INTRO
+========================= -->
+
+<div id="intro">
+
+  <div class="intro-content">
+
+    <div class="intro-logo">
+      T.S
+    </div>
+
+    <div class="intro-title">
+      TENSHI CONNECT
+    </div>
+
+    <div class="intro-subtitle">
+      Contact Growth Platform
+    </div>
+
+    <div class="loading">
+
+      <div class="loading-bar"></div>
+
+    </div>
+
+    <div class="loading-text">
+      Initialisation...
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     LOGIN
+========================= -->
+
+<div class="login-card" id="loginCard">
+
+  <div class="login-logo">
+    T.S
+  </div>
+
+
+  <h1>
+    Bienvenue
+  </h1>
+
+
+  <p class="login-subtitle">
+    Connecte-toi à TENSHI CONNECT
+  </p>
+
+
+  <button
+    id="googleLogin"
+    class="google-btn"
+  >
+
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+    >
+
+      <path
+        fill="#4285F4"
+        d="M21.35 12.27c0-.71-.06-1.39-.18-2.05H12v3.88h5.24a4.48 4.48 0 0 1-1.94 2.94v2.45h3.14c1.84-1.7 2.91-4.2 2.91-7.22z"
+      />
+
+      <path
+        fill="#34A853"
+        d="M12 21.7c2.63 0 4.84-.87 6.45-2.36l-3.14-2.45c-.87.58-1.98.92-3.31.92-2.54 0-4.69-1.72-5.46-4.03H3.29v2.53A9.75 9.75 0 0 0 12 21.7z"
+      />
+
+      <path
+        fill="#FBBC05"
+        d="M6.54 13.78A5.86 5.86 0 0 1 6.23 12c0-.62.11-1.22.31-1.78V7.69H3.29A9.75 9.75 0 0 0 2.25 12c0 1.57.38 3.05 1.04 4.31l3.25-2.53z"
+      />
+
+      <path
+        fill="#EA4335"
+        d="M12 6.19c1.43 0 2.71.49 3.72 1.46l2.79-2.79C16.84 3.18 14.63 2.3 12 2.3a9.75 9.75 0 0 0-8.71 5.39l3.25 2.53C7.31 7.91 9.46 6.19 12 6.19z"
+      />
+
+    </svg>
+
+
+    <span>
+      Continuer avec Google
+    </span>
+
+  </button>
+
+
+  <div
+    id="status"
+    class="status"
+  ></div>
+
+</div>
+
+
+<!-- FIREBASE / GOOGLE LOGIN -->
+
+<script
+  type="module"
+  src="./script.js"
+></script>
+
+
+<!-- INTRO ANIMATION -->
+
+<script>
+
+window.addEventListener("load", () => {
+
+  setTimeout(() => {
+
+    const intro =
+      document.getElementById("intro");
+
+    const card =
+      document.getElementById("loginCard");
+
+
+    intro.classList.add("hide");
+
+
+    setTimeout(() => {
+
+      card.classList.add("show");
+
+    }, 350);
+
+  }, 2400);
+
+});
+
+</script>
+
+
+</body>
+
+</html>
