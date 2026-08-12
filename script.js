@@ -1,3 +1,5 @@
+const GOOGLE_CLIENT_ID = "142211430280-da5kos8sogc01e20a2a3vb5ebpr3llkd.apps.googleusercontent.com"
+Fini
 import {
   GoogleAuthProvider,
   signInWithPopup
